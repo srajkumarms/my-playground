@@ -1,4 +1,3 @@
-/*
 var http = require('http');
 var colors = require("colors");
 var mongo = require("mongoose");
@@ -10,7 +9,8 @@ http.createServer(function (request, response) {
 }).listen(8080);
 
 console.log('Server running at ' + process.env.IP + ":"+ process.env.PORT);
-*/
+
+/*
 var port = 3000;
 var https = require("https");
 var fs = require('fs');
@@ -25,3 +25,4 @@ https.createServer(options, function (req, res) {
   res.end("hello world\n");
 }).listen(8000);
 console.log(("Server running in https://127.0.0.1:" + port).red);
+*/
