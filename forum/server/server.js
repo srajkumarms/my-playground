@@ -3,11 +3,12 @@ var http = require('http');
 var colors = require("colors");
 var mongo = require("mongoose");
 
-http.createServer(function (request, response) {
+var server = http.createServer(function (request, response) {
   response.writeHead(200, {'Content-Type': 'text/html'});
-  response.end('Hello World\n');
+  response.end('<b>Hello World</b>');
   console.log('Hi, I got a request'.green);
-}).listen(8080);
+});
+server.listen(8080);
 
 console.log('Server running at ' + process.env.IP + ":"+ process.env.PORT);
 
