@@ -10,6 +10,7 @@ app.use('/admin', admin);
 app.use('/v', express.static('../client/views'));
 app.use('/s', express.static('../client/scripts'));
 app.use('/c', express.static('../client/styles'));
+app.use('/f', express.static('../client/fonts'));
 
 /* Initialize server and listen for requests */
 var server = app.listen(process.env.PORT, function () {
