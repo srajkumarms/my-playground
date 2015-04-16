@@ -22,3 +22,6 @@ var server = app.listen(process.env.PORT, function () {
 
 });
 
+app.get('/', function(request, response) {
+  response.redirect('/v/index.html#/');
+});
