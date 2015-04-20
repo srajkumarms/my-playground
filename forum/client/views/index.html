@@ -8,10 +8,8 @@
         <link rel="stylesheet" href="/c/angular-block-ui.css" type="text/css" />
     </head>
     <body>
-        <div>
-            <h3>Welcome to Tech Forum.</h3> Search anwsers for your questions.
-        </div>
-        <div ng-controller="RootController as rootCtrl" class="container" style="width:98%;">
+        <div ng-controller="RootController as rootCtrl" style="width:100%;">
+            <app-header></app-header>
             <div ng-view class="container" style="width:98%;">
 
             </div>

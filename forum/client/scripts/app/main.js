@@ -19,6 +19,8 @@ requirejs.config({
         /* Start: Controllers Layer aliases */        
         'InitControllers': 'controllers/InitControllers',
         'RootController': 'controllers/security/RootController',
+        'QuestionController': 'controllers/questions/QuestionController',
+        'QuestionDetailController': 'controllers/questions/QuestionDetailController',
         /* End: Controllers Layer aliases */
         
         

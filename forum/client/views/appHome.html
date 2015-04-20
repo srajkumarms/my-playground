@@ -1,5 +1,101 @@
 
-<div ng-init="setTitle('New title set from view');">
-    
-    <h3>{{title}}</h3>
+<div ng-init="setTitle('Welcome to TechForum');"> 
+    <div  class="alert alert-dismissable alert-info">
+        <h3>{{title}}</h3>
+        One stop shop to quench your technnology thurst. Should you have any questions, search in our forum or feel free to ask question. Our technical team would eargly wait to answer your questions.
+    </div>
 </div>
+
+<div ng-controller="QuestionController as questionCtrl" class="container">
+    <ul class="nav nav-tabs pull-right" style="margin-bottom: 15px;">
+      <li class="active"><a href="#interesting" data-toggle="tab">&nbsp;<span class="glyphicon glyphicon-leaf"></span>&nbsp;Interesting</a></li>
+      <li class=""><a href="#top" data-toggle="tab">&nbsp;<span class="glyphicon glyphicon-arrow-up"></span>&nbsp;Top</a></li>      
+      <li class=""><a href="#hot" data-toggle="tab">&nbsp;<span class="glyphicon glyphicon-fire"></span>&nbsp;Hot</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade active in" id="interesting">
+        <table class="table table-striped table-hover">
+            <tbody>
+                <tr ng-repeat="question in getQuestionsByFactor('interesting')">
+                    <td>
+                        {{question.votes}} <br />
+                        <span class="glyphicon glyphicon-thumbs-up" title="Votes"></span>
+                    </td>
+                    <td>
+                        {{question.answers.length}} <br />
+                        <span class="glyphicon glyphicon-ok" title="Answers"></span>
+                    </td>
+                    <td>
+                        {{question.visits}}<br />
+                        <span class="glyphicon glyphicon-eye-open" title="Visits"></span>
+                    </td>
+                    <td>
+                        <a href="index.html#/question/{{question.id}}" class="lead">{{question.question}}</a>
+                        <br />
+                        <span ng-repeat="tag in question.tags">
+                           <span class="label label-default">{{tag}}</span> 
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <div class="tab-pane fade" id="top">
+        <table class="table table-striped table-hover">
+            
+            <tbody>
+                <tr ng-repeat="question in getQuestionsByFactor('top')">
+                    <td>
+                        {{question.votes}} <br />
+                        <span class="glyphicon glyphicon-thumbs-up" title="Votes"></span>
+                    </td>
+                    <td>
+                        {{question.answers.length}} <br />
+                        <span class="glyphicon glyphicon-ok" title="Answers"></span>
+                    </td>
+                    <td>
+                        {{question.visits}}<br />
+                        <span class="glyphicon glyphicon-eye-open" title="Visits"></span>
+                    </td>
+                    <td>
+                        <a href="index.html#/question/{{question.id}}">{{question.question}}</a>
+                        <br />
+                        <span ng-repeat="tag in question.tags">
+                           <span class="label label-default">{{tag}}</span> 
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <div class="tab-pane fade" id="hot">
+        <table class="table table-striped table-hover">
+            
+            <tbody>
+                <tr ng-repeat="question in getQuestionsByFactor('hot')">
+                    <td title="Votes">
+                        {{question.votes}} <br />
+                        <span class="glyphicon glyphicon-thumbs-up" title="Votes"></span>
+                    </td>
+                    <td title="Answers">
+                        {{question.answers.length}} <br />
+                        <span class="glyphicon glyphicon-ok" title="Answers"></span>
+                    </td>
+                    <td title="Visits">
+                        {{question.visits}}<br />
+                        <span class="glyphicon glyphicon-eye-open" title="Visits"></span>
+                    </td>
+                    <td>
+                        <a href="index.html#/question/{{question.id}}">{{question.question}}</a>
+                        <br />
+                        <span ng-repeat="tag in question.tags">
+                           <span class="label label-default">{{tag}}</span> 
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+

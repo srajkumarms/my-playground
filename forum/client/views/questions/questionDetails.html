@@ -1,0 +1,22 @@
+﻿<div ng-controller="QuestionDetailController as questDetCtrl" ng-init="getQuestionDetails()" class="container">
+
+    <h3>{{question.title}}</h3>
+    <hr />
+    
+     
+
+    <div class="row">
+      <div class="col-sm-1">
+        <a class="glyphicon glyphicon-chevron-up"></a>
+        <div>{{question.likes}}</div>
+        <a class="glyphicon glyphicon-chevron-down"></a>
+      </div>
+      <div class="col-sm-7">{{question.details}}</div>
+      <div class="col-sm-4">
+      
+        Asked By:<span class="text-info">{{question.askedBy}}</span> <br />
+        Asked On:<span class="text-info">{{question.askedOn | date: 'MM-dd-yyyy'}}</span> <br />
+      
+      </div>
+    </div>
+</div>
