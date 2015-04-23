@@ -1,7 +1,8 @@
-var dependencies = [];
-define(dependencies, function () {
+var dependencies = ['BaseController'];
+define(dependencies, function (BaseController) {
 
-    var QuestionController = function QuestionController($scope) {
+    var QuestionController = function QuestionController($scope, $log, $injector) {
+        $injector.invoke(BaseController, this, { $scope: $scope });
         $scope.questions = [
             {
                 "id": 1,
@@ -73,13 +74,16 @@ define(dependencies, function () {
 
         $scope.getQuestionsByFactor = function getQuestionsByFactor(factor) {
             var questions =[];
-            for(i=0; i< $scope.questions.length; i++) {
+            for(var i=0; i< $scope.questions.length; i++) {
                 if ($scope.questions[i].factor == factor) {
                     questions.push($scope.questions[i]);
                 }
             }
             return questions;
         };
+        $scope.maxSize = 1;
     };
+    
+    QuestionController.prototype = Object.create(BaseController.prototype); 
     return QuestionController;
 });
