@@ -1,1 +1,2 @@
 This is a sample checkin
+This is a checking by User1
