@@ -1,2 +1,3 @@
 This is a sample checkin
 This is a checking by User1
+This is a sample checkin from SourceTree.
